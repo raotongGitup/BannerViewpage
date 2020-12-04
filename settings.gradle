@@ -1,0 +1,3 @@
+include ':Banner'
+include ':app'
+rootProject.name = "BannerViewpage"
