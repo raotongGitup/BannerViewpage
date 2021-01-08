@@ -1,10 +1,13 @@
 package com.keke.bannerviewpage;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.keke.banner.BannerAdapter;
 import com.keke.banner.BannerView;
 
 import java.util.ArrayList;
@@ -39,18 +42,19 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    imageView = new ImageView(MainActivity.this);
 //                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//                    imageView.setImageResource(R.mipmap.banner2);
+//
 //
 //                } else {
 //                    imageView = (ImageView) contrtView;
 //                }
-////                imageView.setOnClickListener(new View.OnClickListener() {
-////                    @Override
-////                    public void onClick(View v) {
-////                        Toast.makeText(MainActivity.this, "点击" + position, Toast.LENGTH_SHORT).show();
-////
-////                    }
-////                });
+//                imageView.setImageResource(R.mipmap.banner2);
+//                imageView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(MainActivity.this, "点击" + position, Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
 //
 //                return imageView;
 //            }
