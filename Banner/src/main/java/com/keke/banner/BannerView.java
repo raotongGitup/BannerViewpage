@@ -163,7 +163,7 @@ public class BannerView extends RelativeLayout {
                     imageView = (ImageView) convertView;
                 }
                 if (bannerImageLister != null) {
-                    bannerImageLister.onLoadBanner(imageView, imageList.get(position));
+                    bannerImageLister.onLoadBanner(imageView, imageList.get(position),position);
                     if (listener != null) {
                         imageView.setOnClickListener(listener);
                     }
@@ -310,7 +310,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public interface onLoadBannerImageLister {
-        void onLoadBanner(ImageView imageView, String url);
+        void onLoadBanner(ImageView imageView, String url,int position);
 
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private BannerView banner;
     private List<String> arrrar = new ArrayList<>();
+    private List<Integer> listDrae = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +24,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         for (int i = 0; i < 5; i++) {
             arrrar.add("数据");
+            switch (i) {
+                case 0:
+                    listDrae.add(R.mipmap.ma_01);
+                    break;
+                case 1:
+                    listDrae.add(R.mipmap.ma_02);
+                    break;
+                case 2:
+                    listDrae.add(R.mipmap.ma_03);
+                    break;
+                case 3:
+                    listDrae.add(R.mipmap.ma_04);
+                    break;
+                case 4:
+                    listDrae.add(R.mipmap.ma_05);
+                    break;
+                case 5:
+                    listDrae.add(R.mipmap.ma_06);
+                    break;
+            }
+
         }
         banner = ((BannerView) findViewById(R.id.banner_view));
         banner.setAdapter(arrrar);
         banner.setOnloadBannerList(new BannerView.onLoadBannerImageLister() {
             @Override
-            public void onLoadBanner(ImageView imageView, String url) {
+            public void onLoadBanner(ImageView imageView, String url, int position) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setImageResource(R.mipmap.banner2);
+//                imageView.setImageResource(R.mipmap.banner2);
+                if(position>=5){
+                    position=position-5;
+                }
+                imageView.setImageResource(listDrae.get(position));
+
 
             }
         });
