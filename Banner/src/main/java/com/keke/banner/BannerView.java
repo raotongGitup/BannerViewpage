@@ -78,6 +78,7 @@ public class BannerView extends RelativeLayout {
      */
     private void initDotIndicator() {
         int count = adapter.getContent();
+        bannerContainer.removeAllViews();
         for (int i = 0; i < count; i++) {
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip2px(mDosize), dip2px(mDosize));

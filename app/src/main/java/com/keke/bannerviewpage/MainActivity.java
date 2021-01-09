@@ -22,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        inData();
+    }
+
+    private void inData() {
+        arrrar.clear();
         for (int i = 0; i < 5; i++) {
             arrrar.add("数据");
             switch (i) {
@@ -53,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
             public void onLoadBanner(ImageView imageView, String url, int position) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //                imageView.setImageResource(R.mipmap.banner2);
-                if(position>=5){
-                    position=position-5;
+                if (position >= 5) {
+                    position = position - 5;
                 }
                 imageView.setImageResource(listDrae.get(position));
 
@@ -92,5 +98,12 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
         banner.setStartbanner();
+    }
+
+
+    public void banner(View view) {
+        inData();
+
+
     }
 }
