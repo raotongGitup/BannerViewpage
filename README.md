@@ -12,5 +12,5 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	      implementation 'com.github.raotongGitup:BannerViewpage:v0.02'
+	      implementation 'com.github.raotongGitup:BannerViewpage:v0.0.3'
 	}
