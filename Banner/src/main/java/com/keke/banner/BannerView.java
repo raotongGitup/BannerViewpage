@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -88,7 +89,7 @@ public class BannerView extends RelativeLayout {
             DotIndicatorView dotIndicatorView = new DotIndicatorView(mContent);
             dotIndicatorView.setLayoutParams(params);
             dotIndicatorView.setDrawable(nokIndication);
-            mCurrentPosition=0;
+            mCurrentPosition = 0;
             if (i == 0) {
                 dotIndicatorView.setDrawable(checkIndication);
 
@@ -108,6 +109,14 @@ public class BannerView extends RelativeLayout {
         viewPage = ((BannerViewPage) findViewById(R.id.banner_page));
         bannerContainer = ((LinearLayout) findViewById(R.id.dot_container));
         initViewPagerScroll();
+        bannerContainer.setGravity(Gravity.CENTER);
+        setLinlayout();
+    }
+
+    private void setLinlayout() {
+        if (bannerContainer == null) {
+            return;
+        }
         switch (IndicatorPosition) {
             case -1:
                 bannerContainer.setGravity(Gravity.LEFT);
@@ -121,6 +130,7 @@ public class BannerView extends RelativeLayout {
                 break;
         }
     }
+
 
     public void setAdapter(BannerAdapter adapter) {
         this.adapter = adapter;
@@ -229,6 +239,18 @@ public class BannerView extends RelativeLayout {
 
     }
 
+    public BannerView setManage(int left, int bottom, int right) {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        params.leftMargin = dip2px(left);
+        params.rightMargin = dip2px(right);
+        params.bottomMargin=dip2px(bottom);
+
+        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        bannerContainer.setLayoutParams(params);
+        return this;
+    }
+
+
     /**
      * 设置是否显示指示器
      */
@@ -284,6 +306,7 @@ public class BannerView extends RelativeLayout {
      */
     public BannerView setIndicatorGravity(int gravity) {
         this.IndicatorPosition = gravity;
+        setLinlayout();
         return this;
 
     }

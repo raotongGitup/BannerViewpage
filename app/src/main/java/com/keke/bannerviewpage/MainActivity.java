@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         banner = ((BannerView) findViewById(R.id.banner_view));
+        banner.setIndicatorGravity(1);
+        banner.setManage(10, 10, 50);
         banner.setAdapter(arrrar);
         banner.setOnloadBannerList(new BannerView.onLoadBannerImageLister() {
             @Override
@@ -107,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 inData();
             }
-        },100);
-
+        }, 100);
 
 
     }
