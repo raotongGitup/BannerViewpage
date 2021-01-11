@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         banner.setIndicatorGravity(1);
         banner.setManage(10, 10, 50);
         banner.setAdapter(arrrar);
+        banner.setIndicationColor("#00ff00","#0000ff");
         banner.setOnloadBannerList(new BannerView.onLoadBannerImageLister() {
             @Override
             public void onLoadBanner(ImageView imageView, String url, int position) {

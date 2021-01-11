@@ -73,7 +73,6 @@ public class BannerView extends RelativeLayout {
 
         array.recycle();
 
-
     }
 
     /**
@@ -243,7 +242,7 @@ public class BannerView extends RelativeLayout {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         params.leftMargin = dip2px(left);
         params.rightMargin = dip2px(right);
-        params.bottomMargin=dip2px(bottom);
+        params.bottomMargin = dip2px(bottom);
 
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         bannerContainer.setLayoutParams(params);
@@ -289,6 +288,7 @@ public class BannerView extends RelativeLayout {
     public BannerView setIndicationColor(String check, String noCheck) {
         checkIndication = new ColorDrawable(Color.parseColor(check));
         nokIndication = new ColorDrawable(Color.parseColor(noCheck));
+        initDotIndicator();
         return this;
 
     }
