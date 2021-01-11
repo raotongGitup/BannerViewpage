@@ -1,6 +1,7 @@
 package com.keke.bannerviewpage;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -59,11 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLoadBanner(ImageView imageView, String url, int position) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//                imageView.setImageResource(R.mipmap.banner2);
-//                if (position >= 5) {
-//                    position = position - 5;
-//                }
-                //imageView.setImageResource(listDrae.get(position));
+
                 Glide.with(MainActivity.this).load("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F27%2F67%2F01300000921826141299672233506.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612776257&t=309c06efe8a491e4f613589e1cedf61b")
                         .into(imageView);
 
@@ -105,7 +102,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void banner(View view) {
-        inData();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                inData();
+            }
+        },100);
+
 
 
     }

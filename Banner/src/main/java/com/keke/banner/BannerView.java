@@ -51,8 +51,10 @@ public class BannerView extends RelativeLayout {
     public BannerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContent = context;
+        removeAllViews();
         view = LayoutInflater.from(context).inflate(R.layout.bnner_view, this);
         initView();
+
         inttType(attrs);
 
     }
@@ -85,10 +87,15 @@ public class BannerView extends RelativeLayout {
             params.leftMargin = params.rightMargin = dip2px(2);
             DotIndicatorView dotIndicatorView = new DotIndicatorView(mContent);
             dotIndicatorView.setLayoutParams(params);
+            dotIndicatorView.setDrawable(nokIndication);
+            mCurrentPosition=0;
             if (i == 0) {
                 dotIndicatorView.setDrawable(checkIndication);
+
             } else {
                 dotIndicatorView.setDrawable(nokIndication);
+
+
             }
             bannerContainer.addView(dotIndicatorView);
 
@@ -164,7 +171,7 @@ public class BannerView extends RelativeLayout {
                     imageView = (ImageView) convertView;
                 }
                 if (bannerImageLister != null) {
-                    bannerImageLister.onLoadBanner(imageView, imageList.get(position),position);
+                    bannerImageLister.onLoadBanner(imageView, imageList.get(position), position);
                     if (listener != null) {
                         imageView.setOnClickListener(listener);
                     }
@@ -178,6 +185,7 @@ public class BannerView extends RelativeLayout {
             }
         };
         viewPage.setAdapter(adapter);
+        viewPage.clearOnPageChangeListeners();
         viewPage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -211,9 +219,11 @@ public class BannerView extends RelativeLayout {
         DotIndicatorView oldIndicatorView = (DotIndicatorView)
                 bannerContainer.getChildAt(mCurrentPosition);
         oldIndicatorView.setDrawable(nokIndication);
+        Log.e(this.getClass().getSimpleName(), "oldIndicatorView: " + mCurrentPosition);
         mCurrentPosition = position % adapter.getContent();
         DotIndicatorView currentIndicatorView = (DotIndicatorView)
                 bannerContainer.getChildAt(mCurrentPosition);
+        Log.e(this.getClass().getSimpleName(), "currentIndicatorView: " + mCurrentPosition);
         currentIndicatorView.setDrawable(checkIndication);
 
 
@@ -311,7 +321,7 @@ public class BannerView extends RelativeLayout {
     }
 
     public interface onLoadBannerImageLister {
-        void onLoadBanner(ImageView imageView, String url,int position);
+        void onLoadBanner(ImageView imageView, String url, int position);
 
     }
 }
