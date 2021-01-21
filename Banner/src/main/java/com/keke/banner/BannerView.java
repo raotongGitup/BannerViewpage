@@ -249,6 +249,16 @@ public class BannerView extends RelativeLayout {
         return this;
     }
 
+    /**
+     * 设置切换两个页的切换效率时间
+     */
+
+    public BannerView setRateTime(int duration) {
+        BannerConfig.DEFAULT_DURATION = duration;
+        initViewPagerScroll();
+        return this;
+    }
+
 
     /**
      * 设置是否显示指示器
