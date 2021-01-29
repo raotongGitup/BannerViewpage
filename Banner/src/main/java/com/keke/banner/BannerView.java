@@ -296,9 +296,12 @@ public class BannerView extends RelativeLayout {
      * 设置指示器选中和没选中颜色（指示器为默认圆形）
      */
     public BannerView setIndicationColor(String check, String noCheck) {
-        checkIndication = new ColorDrawable(Color.parseColor(check));
-        nokIndication = new ColorDrawable(Color.parseColor(noCheck));
-        initDotIndicator();
+        if (isColor(check) && isColor(noCheck)) {
+            checkIndication = new ColorDrawable(Color.parseColor(check));
+            nokIndication = new ColorDrawable(Color.parseColor(noCheck));
+            initDotIndicator();
+
+        }
         return this;
 
     }
@@ -356,5 +359,14 @@ public class BannerView extends RelativeLayout {
     public interface onLoadBannerImageLister {
         void onLoadBanner(ImageView imageView, String url, int position);
 
+    }
+
+    private boolean isColor(String string) {
+        if (string != null && string.matches("#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})")) {
+            return true;
+
+        } else {
+            return false;
+        }
     }
 }
