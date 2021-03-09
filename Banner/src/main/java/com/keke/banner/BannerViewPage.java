@@ -23,7 +23,7 @@ public class BannerViewPage extends ViewPager {
     public BannerAdapter adapter;
     private static final int MESSAGE_WHAT = BannerConfig.MESSAGE_WHAT;
     private int START_TIME = BannerConfig.START_TIME;
-    private int INTT_PAGE = Integer.MAX_VALUE / 2;
+
     public List<View> mConvertViews;
 
     private Handler handler = new Handler() {
@@ -46,7 +46,7 @@ public class BannerViewPage extends ViewPager {
 
     public BannerViewPage(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        setCurrentItem(INTT_PAGE);
+
         mConvertViews = new ArrayList<>();
 
     }
@@ -80,7 +80,10 @@ public class BannerViewPage extends ViewPager {
                 handler.removeMessages(MESSAGE_WHAT);
                 break;
             case MotionEvent.ACTION_UP:
-                setStartbanner();
+                if(BannerConfig.mShuffling){
+                    setStartbanner();
+                }
+
                 break;
 
         }

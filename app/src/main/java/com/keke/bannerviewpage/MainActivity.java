@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> arrrar = new ArrayList<>();
     private List<Integer> listDrae = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
             public void onLoadBanner(ImageView imageView, String url, int position) {
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-                Glide.with(MainActivity.this).load("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F27%2F67%2F01300000921826141299672233506.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612776257&t=309c06efe8a491e4f613589e1cedf61b")
-                        .into(imageView);
+//                Glide.with(MainActivity.this).load("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F27%2F67%2F01300000921826141299672233506.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612776257&t=309c06efe8a491e4f613589e1cedf61b")
+//                        .into(imageView);
 
-
+                imageView.setImageResource(listDrae.get(position%5));
             }
         });
 //        banner.setAdapter(new BannerAdapter() {
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 //                return arrrar.size();
 //            }
 //        });
-        banner.setStartbanner();
+       // banner.setStartbanner();
     }
 
 

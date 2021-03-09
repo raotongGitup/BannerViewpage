@@ -39,6 +39,8 @@ public class BannerView extends RelativeLayout {
     private int mDosize;
     private onLoadBannerImageLister bannerImageLister;
     private View.OnClickListener listener;
+    private int INTT_PAGE = Integer.MAX_VALUE / 2;
+
 
 
     public BannerView(Context context) {
@@ -106,6 +108,7 @@ public class BannerView extends RelativeLayout {
 
     private void initView() {
         viewPage = ((BannerViewPage) findViewById(R.id.banner_page));
+
         bannerContainer = ((LinearLayout) findViewById(R.id.dot_container));
         initViewPagerScroll();
         bannerContainer.setGravity(Gravity.CENTER);
@@ -160,6 +163,7 @@ public class BannerView extends RelativeLayout {
         if (isAccording) {
             initDotIndicator();
         }
+        viewPage.setCurrentItem(INTT_PAGE);
 
     }
 
@@ -216,7 +220,7 @@ public class BannerView extends RelativeLayout {
         if (isAccording) {
             initDotIndicator();
         }
-
+        viewPage.setCurrentItem(INTT_PAGE);
 
     }
 
@@ -310,6 +314,7 @@ public class BannerView extends RelativeLayout {
      * 开始播放
      */
     public BannerView setStartbanner() {
+        BannerConfig.mShuffling=true;
         viewPage.setStartbanner();
         return this;
     }
