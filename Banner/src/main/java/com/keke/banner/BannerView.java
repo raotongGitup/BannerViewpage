@@ -81,6 +81,9 @@ public class BannerView extends RelativeLayout {
      * 初始圆点指示器
      */
     private void initDotIndicator() {
+        if(adapter==null){
+            return;
+        }
         int count = adapter.getContent();
         bannerContainer.removeAllViews();
         for (int i = 0; i < count; i++) {
@@ -134,8 +137,8 @@ public class BannerView extends RelativeLayout {
     }
 
 
-    public void setAdapter(BannerAdapter adapter) {
-        this.adapter = adapter;
+    public void setAdapter(BannerAdapter adapters) {
+        this.adapter = adapters;
         if (adapter.getContent() == 0) {
             view.setVisibility(GONE);
             return;
